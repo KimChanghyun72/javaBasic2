@@ -5,7 +5,7 @@ public class Parent extends Object{//모든 클래스는 기본적으로 Object 
 	private String firstName;
 	private String telNumber;//집전화번호
 	
-	private Parent() {
+	protected Parent() {
 		
 	}
 
