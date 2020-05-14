@@ -114,3 +114,6 @@ public class AddressList {
 	}//end of execute
 
 }//end of class
+
+//다른 사람이 한 건 addList의 친구, 번호 입력 중복을 제거해주고, findName 에서 주소록에 값이 없을 경우
+//를 표현해줌. 더 섬세하게 잘 짰음.
