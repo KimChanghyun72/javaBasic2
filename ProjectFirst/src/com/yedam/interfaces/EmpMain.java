@@ -3,13 +3,13 @@ package com.yedam.interfaces;
 import java.util.Scanner;
 
 public class EmpMain {
-	static Scanner scn = new Scanner(System.in);
+	//static Scanner scn = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		//1.입력 2.전체 리스트 3. 수정 4. 삭제 5. 종료
 		//EmpService service = new EmpServiceImpl(); 인터페이스를 사용해 개량된 버전을 만든 뒤 생성자만 바꿔주면 쉬운 적용 가능.
 		EmpService service = new EmpServiceImplVer2();
-
+		Scanner scn = new Scanner(System.in);
 		while (true) {
 			System.out.println("======================================");
 			System.out.println("1.입력 2.전체리스트 3.수정  4.삭제  5.종료");
@@ -24,12 +24,21 @@ public class EmpMain {
 				System.out.println("입력 유형이 알맞지 않습니다.");
 				scn.nextLine();
 				//e.printStackTrace();
-				menu = recursive();
+				//menu = recursive();
 			}
 
 			if (menu == 1) {
 				System.out.println("사원번호 입력: ");
-				int empId = scn.nextInt();
+				
+				int empId=0;
+				try {
+					empId = 0;
+				} catch (Exception e) {
+					System.out.println("입력 유형이 알맞지 않습니다.");
+					scn.nextLine();
+					// TODO Auto-generated catch block
+					//e.printStackTrace();
+				}
 				scn.nextLine();
 				System.out.println("성 입력: ");
 				String lastName = scn.nextLine();
@@ -65,22 +74,22 @@ public class EmpMain {
 		} //end of while loop
 		System.out.println("프로그램 종료.");
 	}//end of main
-
-	static int recursive() {
-		int returnValue = 0;
-		while (true) {
-			try {
-				System.out.println("사원 번호를 입력하세요.");
-				returnValue = scn.nextInt();
-				scn.nextLine();
-				break;
-			} catch (Exception e) {
-
-				//e.printStackTrace();
-				scn.nextLine();
+	/*
+		static int recursive() {
+			int returnValue = 0;
+			while (true) {
+				try {
+					System.out.println("사원 번호를 입력하세요.");
+					returnValue = scn.nextInt();
+					scn.nextLine();
+					break;
+				} catch (Exception e) {
+	
+					//e.printStackTrace();
+					scn.nextLine();
+				}
 			}
+			return returnValue;
 		}
-		return returnValue;
-	}
-
-}
+	
+	*/}
