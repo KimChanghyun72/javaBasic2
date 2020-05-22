@@ -1,10 +1,6 @@
-package com.yedam.interfaces;
+package com.yedam.list;
 
 import java.util.Scanner;
-
-import com.yedam.list.EmpService;
-import com.yedam.list.EmpServiceImpl;
-import com.yedam.list.Employee;
 
 public class EmpMain {
 	//static Scanner scn = new Scanner(System.in);
@@ -138,3 +134,5 @@ public class EmpMain {
 	}//end of class
 	
 		
+		
+	

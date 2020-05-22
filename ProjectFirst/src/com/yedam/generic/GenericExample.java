@@ -27,7 +27,7 @@ public class GenericExample {
 		
 		//제네릭. <>안의 타입만 받을 수 있게 해 줌.
 		List<String> strList = new ArrayList<String>();
-		strList.add(new String("Hello"));
+		strList.add(new String("Hello"));//new Integer(10))->바로 오류 내노음;
 		
 		List<Integer> intList = new ArrayList<Integer>();
 		intList.add(new Integer(10));
