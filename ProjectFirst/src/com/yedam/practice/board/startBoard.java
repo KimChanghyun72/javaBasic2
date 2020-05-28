@@ -60,7 +60,7 @@ public class startBoard {
 
 				}
 			} else if (menu == 3) {
-				String title;
+				String title;	
 				System.out.println("삭제할 게시글의 제목을 입력하세요.");
 				title = scn.nextLine();
 				for (int i = 0; i < arr.title.size(); i++) {

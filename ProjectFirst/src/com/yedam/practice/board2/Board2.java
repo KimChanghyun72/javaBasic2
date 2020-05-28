@@ -1,9 +1,9 @@
 package com.yedam.practice.board2;
 
 public class Board2 {
-	private String title;
-	private String contents;
-	private String user;
+	private String title=null;
+	private String contents=null;
+	private String user=null;
 	
 	Board2(){
 		
