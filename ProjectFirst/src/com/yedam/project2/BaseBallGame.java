@@ -7,14 +7,14 @@ import java.util.Scanner;
 
 public class BaseBallGame {
 	public static void main(String[] args) {
-		
+
 		Scanner scn = new Scanner(System.in);
 
 		//입력된 값이 중복된게 아니도록 체크하기.
 		int value1 = 0;
 		int value3 = 0;
 		int value2 = 0;
-		int num = 0;
+		int num = 1;
 		int[] arr = new int[3];
 		int[] arr2 = new int[3];
 		Random random = new Random();
@@ -25,11 +25,14 @@ public class BaseBallGame {
 			//중복된 값 체크하기
 		}
 		for (int j = 0; j < arr.length - 1; j++) {
-			for (int i = 1; i < arr.length; i++) {
+			for (int i = j+1; i < arr.length; i++) {
+				while (true) {
+					if (arr[j] == arr[i]) {
+						arr[i] = random.nextInt(9) + 1;
 
-				if (arr[j] == arr[i]) {
-					arr[i] = random.nextInt(9) + 1;
-				
+					}else {
+						break;
+					}
 				}
 
 			}
@@ -39,7 +42,7 @@ public class BaseBallGame {
 		}
 		CompareInter service = new CompareImpl();
 
-		while (num<10) {
+		while (num < 10) {
 			List<ValueBoard> list = new ArrayList<>();
 			System.out.println("야구게임 시작");
 
@@ -48,33 +51,33 @@ public class BaseBallGame {
 			ValueBoard valueboard1 = new ValueBoard(value1);
 			service.insert(list, valueboard1);
 			System.out.println("두번째 숫자 입력");
-			value2 = scn.nextInt();
+			value2 = scn.nextInt();scn.nextLine();
 			ValueBoard valueboard2 = new ValueBoard(value2);
 			service.insert(list, valueboard2);
 			System.out.println("세번재 숫자 입력");
-			value3 = scn.nextInt();
+			value3 = scn.nextInt();scn.nextLine();
 			ValueBoard valueboard3 = new ValueBoard(value3);
 			service.insert(list, valueboard3);
 
 			arr2 = service.compare(list, arr);
-			for(int i=0; i<arr2.length; i++) {
-				if(arr2[i]==2)
+			for (int i = 0; i < arr2.length; i++) {
+				if (arr2[i] == 2)
 					System.out.print("스트라이크, ");
-				else if(arr2[i]==1)
-					System.out.println("볼, ");
+				else if (arr2[i] == 1)
+					System.out.print("볼, ");
 				else
-					System.out.println("아웃.");
+					System.out.print("아웃.");
 			}
 			System.out.println(" ");
-			if(arr2[0]==2 && arr2[1]==2 && arr2[2]==2) {
-				num=10;
-				System.out.println("3스트라이크, 게임 끝.");
+			if (arr2[0] == 2 && arr2[1] == 2 && arr2[2] == 2) {
+				num = 10;
+				System.out.println("3스트라이크.");
 			}
 			num++;
-			
-			
-		}
+			System.out.println("남은 기회: " + (10-num));
 
+		}//end of while
+		System.out.println("게임 끝.");
 	} //end of main
 }
 
