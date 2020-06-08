@@ -23,7 +23,7 @@ class Member{
 	public boolean equals(Object obj) {
 		Member mem = (Member) obj;
 		return this.name.equals(mem.name);
-	}
+	}//obj에서 name값만으로 동일유무를 비교하도록 변경.
 	
 	
 }

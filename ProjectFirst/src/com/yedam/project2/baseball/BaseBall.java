@@ -27,9 +27,9 @@ public class BaseBall {
 
 			}
 		}
-//		for (int i = 0; i < oneAry.length; i++) {
-//			System.out.println(oneAry[i]);
-//		}
+		for (int i = 0; i < oneAry.length; i++) {
+			System.out.println(oneAry[i]);
+		}
 		while (count < 9) {
 			int strike = 0;
 			int ball = 0;
