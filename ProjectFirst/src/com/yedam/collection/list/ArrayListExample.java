@@ -18,8 +18,8 @@ public class ArrayListExample {
 		}
 		System.out.println(list.get(1));
 		
-		list.remove(4);
-		System.out.println("after remove(4)");
+		list.remove(2);
+		System.out.println("after remove(2)");
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).toString());
