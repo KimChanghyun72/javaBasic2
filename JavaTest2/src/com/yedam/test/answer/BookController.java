@@ -1,5 +1,6 @@
-package com.yedam.test;
+package com.yedam.test.answer;
 
+import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -75,43 +76,24 @@ public class BookController implements Initializable {
 			@Override
 			public void handle(MouseEvent event) {
 				if (event.getClickCount() == 2) {//더블클릭.
-					Stage chartStage = new Stage(StageStyle.UTILITY);
-					chartStage.initModality(Modality.WINDOW_MODAL);//modal타입 윈도우가 실행되려면 주인 윈도우 필요.
+					Stage dialog = new Stage(StageStyle.UTILITY);
+					dialog.initModality(Modality.WINDOW_MODAL);//modal타입 윈도우가 실행되려면 주인 윈도우 필요.
 					//chartStage.initOwner(primaryStage);
-					chartStage.initOwner(tableView.getScene().getWindow());
+					dialog.initOwner(tableView.getScene().getWindow());
 
 					Parent parent;
 					try {
 						parent = FXMLLoader.load(getClass().getResource("UpdateBook.fxml"));
-						TableView tableView2 = (TableView) parent.lookup("#tableView");
-
-						TableColumn<Book, ?> tcName = (TableColumn<Book, ?>) tableView2.getColumns().get(0);
-						tcName.setCellValueFactory(new PropertyValueFactory("bookName"));
-						TableColumn<Book, ?> tcWriter = (TableColumn<Book, ?>) tableView2.getColumns().get(1);
-						tcWriter.setCellValueFactory(new PropertyValueFactory("bookWriter"));
-						TableColumn<Book, ?> tcPrice = (TableColumn<Book, ?>) tableView2.getColumns().get(2);
-						tcPrice.setCellValueFactory(new PropertyValueFactory("sellCount"));
-						TableColumn<Book, ?> tcCount = (TableColumn<Book, ?>) tableView2.getColumns().get(3);
-						tcCount.setCellValueFactory(new PropertyValueFactory("sellCount"));
 						
-						tableView2.setItems(bookList);
-
-						tableView2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Book>() {
-
+						bookCode = parent.lookup("#bookCode");
+						bookCode.setText(tableView.getSelectionModel().selectedItemProperty().getValue().getBookName());;
+						//교수님한테 파일 올려달라 그래봐야지.
 						
-							@Override
-							public void changed(ObservableValue<? extends Book> arg0, Book oldVal, Book newVal) {
-								// TODO Auto-generated method stub
-								tcName.setText(newVal.getBookName());
-								//tcCount.setText(newVal.getSellCount());
-							}
-
-						});
 
 						Scene scene = new Scene(parent);
-						chartStage.setScene(scene);
-						chartStage.show();
-						chartStage.setResizable(false);
+						dialog.setScene(scene);
+						dialog.show();
+						dialog.setResizable(false);
 
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
