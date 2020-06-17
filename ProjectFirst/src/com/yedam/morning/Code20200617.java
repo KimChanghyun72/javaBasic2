@@ -24,7 +24,7 @@ public class Code20200617 {
 					randNumList.remove(j);
 				}
 			}
-			System.out.println(array[i]);
+		//	System.out.println(array[i]);
 		}
 		
 		int[] a = new int[3];
@@ -36,8 +36,21 @@ public class Code20200617 {
 					j = -1;		//for문 조건을 뒤로 돌린다는 게 신박하다.
 				}
 			}
-			System.out.println(a[i]);
-		}		
+			//System.out.println(a[i]);
+		}
+		size = 6;
+		
+		int[] thirdAry = new int[size];
+		for(int i=0; i<size; i++) {
+			thirdAry[i]= (int)((Math.random()*45)+1);
+			for(int j=0; j<i; j++) {
+				if(thirdAry[i]==thirdAry[j]) {
+					thirdAry[i] =  (int) ((Math.random() * 45)+1);
+					j=-1;
+				}
+			}
+			System.out.println(thirdAry[i]);
+		}
 		
 		
 	}//end of main
