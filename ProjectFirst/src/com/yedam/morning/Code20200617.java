@@ -5,29 +5,39 @@ import java.util.List;
 
 public class Code20200617 {
 	public static void main(String[] args) {
-		int size = 5;
+		int size = 20;
 		int [] array = new int[size];
 		int [] compArray = new int[size];
-		int [] randNumArray = new int[size];
-		for(int i=0; i<size; i++) {
-			randNumArray[i] = i;
+		List<Integer> randNumList = new ArrayList();
+		
+		for(int i=0; i<size; i++) {//난수 리스트에 값 채워넣기.
+			randNumList.add(i+1);
 		}
 		
-		for(int i=0; i<array.length; i++) {
-			if(i==0) {
-				array[i] = (int)(Math.random()*10);
-				compArray[i] = array[i];
-			}else {
-				array[i] = (int)(Math.random()*10);
-				for(int j=0; j<compArray.length; j++) {
-					if(array[i]==compArray[j]) {
-						array[i] = (int)(Math.random()*10);
-						compArray[i] = array[i];
-					}
+		
+		for(int i=0; i<size; i++) {//array에 입력.
+			int randomNumIndex = (int)((Math.random()*(randNumList.size())));
+			int randomNumber = randNumList.get(randomNumIndex);
+			array[i] = randomNumber;
+			for(int j= 0; j<randNumList.size(); j++) {
+				if(randNumList.get(j)==randomNumber) {
+					randNumList.remove(j);
 				}
 			}
+			System.out.println(array[i]);
 		}
 		
+		int[] a = new int[3];
+		for (int i = 0; i <= 2; i++) {
+			a[i] = (int) (Math.random() * 10);
+			for (int j = 0; j < i; j++) {
+				if (a[i] == a[j]) { // 중복 제거
+					a[i] = (int) (Math.random() * 10);
+					j = -1;		//for문 조건을 뒤로 돌린다는 게 신박하다.
+				}
+			}
+			System.out.println(a[i]);
+		}		
 		
 		
 	}//end of main
