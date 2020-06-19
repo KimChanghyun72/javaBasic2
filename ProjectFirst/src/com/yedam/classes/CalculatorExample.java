@@ -1,0 +1,22 @@
+package com.yedam.classes;
+
+public class CalculatorExample {
+	public static void main(String[] args) {
+		Calculator cal = new Calculator();
+		cal.powerOn();
+		int result1 = cal.sum(10, 50);
+		double result2 = cal.sum(10.5, 50.3);
+		cal.println("30");
+		cal.println(result1);
+		cal.println(result2);
+		//method overriding ->println 메소드의 매개변수를 다르게 호출 및 실행하도록 해줌
+		double area1 = cal.getAreaRectangle(4.6, 5.5);
+		cal.println("직사각형의 넓이의 " + area1);
+		
+		double area2 = cal.getAreaRectangle(5.5);
+		cal.println(area2);
+		
+		cal.println(cal.getAreaRectangle(area1, area2));
+		
+		}//end of main
+}//end of class
