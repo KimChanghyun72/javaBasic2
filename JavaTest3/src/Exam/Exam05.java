@@ -55,7 +55,7 @@ public class Exam05 {
 //		System.out.println("급여 합계: " + employees.stream().filter(s -> s.getSalary() < 5000)
 //				.sorted((o1, o2) -> Integer.compare(o1.getSalary(), o2.getSalary()))
 //				.peek(s -> System.out.println("급여: " + s.getSalary() + " 이름: " + s.getFirstName()))
-//				.map(e -> e.getSalary()).reduce(0, (t,u) -> (t + u)));
+//				.map(e -> e.getSalary()).reduce(0, (t,u) -> (t + u))); //==>지저분하다.
 		
 	}//end of main
 }//end of Exam05
