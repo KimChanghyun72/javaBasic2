@@ -1,0 +1,7 @@
+불완전복구 진행순서
+1. shutdown abort
+2. startup mount
+3. restore database;
+4. run set until time or sequenceNumber
+   recover database;
+5. alter system resetlogs;
